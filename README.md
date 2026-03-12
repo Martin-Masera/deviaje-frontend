@@ -1,27 +1,75 @@
-# DeviajeFrontend
+# ✈️ Deviaje — Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+Frontend de la plataforma de reservas de viajes **Deviaje**, desarrollada como **Práctica Supervisada UTN-FRC 2025**. Construida con **Angular 18** y arquitectura de componentes standalone, consume APIs externas reales (Amadeus, HotelBeds, MercadoPago) a través de los microservicios backend.
+---
 
-## Development server
+## 🛠️ Tecnologías
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+| Tecnología | Descripción |
+|---|---|
+| Angular 18 | Framework principal, componentes standalone |
+| Bootstrap 5 | Sistema de grilla y utilidades |
+| SCSS | Estilos visuales globales y reutilizables |
+| Google Charts | Visualización de datos en dashboards |
+| Angular Material | Componentes UI adicionales (tooltips, etc.) |
+| jsPDF + autotable | Exportación de reportes a PDF |
+| SheetJS (XLSX) | Exportación de reportes a Excel |
+| MercadoPago SDK | Integración de pagos |
+| JWT | Autenticación y control de sesión |
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🔐 Sistema de roles
 
-## Build
+La aplicación implementa un sistema de cuatro roles con guards y rutas protegidas:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+| Rol | Acceso |
+|---|---|
+| **Guest** | Home, búsqueda de vuelos/hoteles/paquetes, login, registro |
+| **Client** | Todo lo anterior + reservas, pagos, perfil, mis reservas |
+| **Agente** | Dashboard de agente, gestión de clientes, reservas |
+| **Administrador** | Panel completo: usuarios, dashboards, reportes, estadísticas |
 
-## Running unit tests
+## 🔗 Integraciones
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+El frontend consume los siguientes servicios a través del backend:
 
-## Running end-to-end tests
+- **Amadeus API** — Búsqueda y reserva de vuelos
+- **HotelBeds API** — Búsqueda y reserva de hoteles
+- **MercadoPago** — Procesamiento de pagos
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## 📊 Dashboards
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Los paneles de administración y agente incluyen gráficos interactivos con **Google Charts**:
+
+- Reservas por tipo (ColumnChart)
+- Ingresos en el tiempo (LineChart)
+- Top destinos (BarChart)
+- Top aerolíneas (BarChart)
+
+Todos los gráficos permiten exportar los datos en formato **PDF** y **Excel**.
+
+---
+
+## 🎨 Convenciones de estilos
+
+- **Bootstrap 5** para estructura, grilla y espaciado
+- **SCSS global** para estilos visuales (colores, sombras, tipografías, bordes)
+
+---
+
+## 📦 Repositorios relacionados
+
+| Repositorio                        | Descripción |
+|------------------------------------|-----------|
+| [deviaje-frontend](https://github.com/Martin-Masera/deviaje-frontend) | Este repositorio (interfaz) |
+| [deviaje-bookings-and-payments](https://github.com/Martin-Masera/deviaje-bookings-and-payments) | Microservicio de reservas y pagos |
+| [deviaje-searches](https://github.com/Martin-Masera/deviaje-searches) | Microservicio de búsquedas |
+| [deviaje-users-and-auth](https://github.com/Martin-Masera/deviaje-users-and-auth) | Microservicio de usuarios y autenticación |
+---
+
+## 👨‍💻 Autor
+
+Desarrollado por **Gustavo Martin Masera** como proyecto final de la Tecnicatura en Programación (UTN-FRC).
